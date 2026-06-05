@@ -5,7 +5,6 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
             <h1>Administratorski panel</h1>
-            <p class="text-secondary mb-0">Osnovni prikaz admin strane</p>
         </div>
         <a href="../index.php" class="btn btn-outline-primary">Nazad na početnu</a>
     </div>
@@ -62,7 +61,6 @@
                     <div style="height: 90%"></div>
                     <div style="height: 65%"></div>
                 </div>
-                <p class="text-secondary mt-3 mb-0">Dnevni, nedeljni i mesečni prikaz.</p>
             </div>
         </div>
     </div>

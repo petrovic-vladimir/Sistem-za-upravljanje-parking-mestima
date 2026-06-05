@@ -1,19 +1,13 @@
-<nav class="navbar navbar-expand-lg navbar-dark app-navbar sticky-top">
-    <div class="container">
-        <a class="navbar-brand fw-bold" href="index.php">Parking Sistem</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="mainMenu">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link" href="index.php">Početna</a></li>
-                <li class="nav-item"><a class="nav-link" href="reservation.php">Rezervacija</a></li>
-                <li class="nav-item"><a class="nav-link" href="payment.php">Plaćanje</a></li>
-                <li class="nav-item"><a class="nav-link" href="admin/dashboard.php">Admin panel</a></li>
-                <li class="nav-item"><a class="nav-link" href="login.php">Prijava</a></li>
-                <li class="nav-item"><a class="btn btn-primary btn-sm ms-lg-2" href="register.php">Registracija</a></li>
-            </ul>
+<nav class="navbar navbar-dark app-navbar sticky-top">
+    <div class="container d-flex flex-wrap align-items-center justify-content-between gap-3 py-2">
+        <a class="navbar-brand fw-bold me-4" href="<?php echo $basePath; ?>index.php">Parking Sistem</a>
+        <div class="d-flex flex-wrap align-items-center gap-2">
+            <a class="nav-link text-light" href="<?php echo $basePath; ?>index.php">Početna</a>
+            <a class="nav-link text-light" href="<?php echo $basePath; ?>reservation.php">Rezervacija</a>
+            <a class="nav-link text-light" href="<?php echo $basePath; ?>payment.php">Plaćanje</a>
+            <a class="nav-link text-light" href="<?php echo $basePath; ?>admin/dashboard.php">Admin panel</a>
+            <a class="nav-link text-light" href="<?php echo $basePath; ?>login.php">Prijava</a>
+            <a class="btn btn-primary btn-sm" href="<?php echo $basePath; ?>register.php">Registracija</a>
         </div>
     </div>
 </nav>

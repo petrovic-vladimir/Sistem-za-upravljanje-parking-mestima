@@ -53,7 +53,7 @@
 
             <div class="card app-card">
                 <div class="card-body p-4">
-                    <h4>Rezervisi</h4>
+                    <h4>Rezerviši</h4>
                     <a href="reservation.php" class="btn btn-outline-primary w-100">Forma za rezervaciju</a>
                 </div>
             </div>
