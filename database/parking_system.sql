@@ -40,6 +40,11 @@ CREATE TABLE payments (
     FOREIGN KEY (reservation_id) REFERENCES reservations(id)
 );
 
+
+INSERT INTO users (first_name, last_name, email, password, role) VALUES
+('Admin', 'Korisnik', 'admin@parking.rs', '$2y$12$OnN4.Dz0TSbvbe1HXmEsO.x3h6.NkyKqc.ylRmOi6SQqHJWDIQvIK', 'admin'),
+('Test', 'Korisnik', 'korisnik@parking.rs', '$2y$12$ntc8PLFYGrfuat5LDNF5SOuQRfxTB0VchnFlyVf3tT35hQtFoEmdG', 'korisnik');
+
 INSERT INTO parking_spots (spot_number, status, price_per_hour) VALUES
 ('P01', 'slobodno', 100.00),
 ('P02', 'slobodno', 100.00),

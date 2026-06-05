@@ -5,9 +5,16 @@
             <a class="nav-link text-light" href="<?php echo $basePath; ?>index.php">Početna</a>
             <a class="nav-link text-light" href="<?php echo $basePath; ?>reservation.php">Rezervacija</a>
             <a class="nav-link text-light" href="<?php echo $basePath; ?>payment.php">Plaćanje</a>
-            <a class="nav-link text-light" href="<?php echo $basePath; ?>admin/dashboard.php">Admin panel</a>
-            <a class="nav-link text-light" href="<?php echo $basePath; ?>login.php">Prijava</a>
-            <a class="btn btn-primary btn-sm" href="<?php echo $basePath; ?>register.php">Registracija</a>
+            <?php if ($session->isAdmin()): ?>
+                <a class="nav-link text-light" href="<?php echo $basePath; ?>admin/dashboard.php">Admin panel</a>
+            <?php endif; ?>
+            <?php if ($session->isLoggedIn()): ?>
+                <span class="nav-link text-light">Korisnik: <?php echo $_SESSION['first_name']; ?></span>
+                <a class="btn btn-outline-light btn-sm" href="<?php echo $basePath; ?>logout.php">Odjava</a>
+            <?php else: ?>
+                <a class="nav-link text-light" href="<?php echo $basePath; ?>login.php">Prijava</a>
+                <a class="btn btn-primary btn-sm" href="<?php echo $basePath; ?>register.php">Registracija</a>
+            <?php endif; ?>
         </div>
     </div>
 </nav>

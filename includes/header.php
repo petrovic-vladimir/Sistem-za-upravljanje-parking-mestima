@@ -1,4 +1,7 @@
 <?php
+require_once __DIR__ . '/../classes/Session.php';
+$session = new Session();
+$session->start();
 $basePath = strpos($_SERVER['PHP_SELF'], '/admin/') !== false ? '../' : '';
 ?>
 <!DOCTYPE html>

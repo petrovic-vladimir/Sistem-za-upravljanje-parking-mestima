@@ -1,4 +1,10 @@
 <?php include '../includes/header.php'; ?>
+<?php
+if (!$session->isAdmin()) {
+    header('Location: ../login.php');
+    exit;
+}
+?>
 <?php include '../includes/navbar.php'; ?>
 
 <main class="container py-5">
