@@ -31,6 +31,25 @@ class ParkingSpot extends Database implements CRUDInterface
         return mysqli_query($conn, $sql);
     }
 
+    public function countAll()
+    {
+        $conn = $this->getConnection();
+        $sql = "SELECT COUNT(*) AS total FROM parking_spots";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        return $row['total'];
+    }
+
+    public function countByStatus($status)
+    {
+        $conn = $this->getConnection();
+        $status = mysqli_real_escape_string($conn, $status);
+        $sql = "SELECT COUNT(*) AS total FROM parking_spots WHERE status = '$status'";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        return $row['total'];
+    }
+
     public function update($id, $data)
     {
         $conn = $this->getConnection();

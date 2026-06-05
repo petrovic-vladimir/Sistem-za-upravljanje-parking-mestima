@@ -1,3 +1,26 @@
+<?php
+require_once 'classes/Session.php';
+require_once 'classes/ParkingSpot.php';
+
+$session = new Session();
+$session->start();
+
+if (!$session->isLoggedIn()) {
+    header('Location: login.php');
+    exit;
+}
+
+if ($session->isAdmin()) {
+    header('Location: admin/dashboard.php');
+    exit;
+}
+
+$parkingSpot = new ParkingSpot();
+$spots = $parkingSpot->readAll();
+$totalSpots = $parkingSpot->countAll();
+$freeSpots = $parkingSpot->countByStatus('slobodno');
+$occupiedSpots = $parkingSpot->countByStatus('zauzeto');
+?>
 <?php include 'includes/header.php'; ?>
 <?php include 'includes/navbar.php'; ?>
 
@@ -8,16 +31,16 @@
                 <span class="badge text-bg-primary mb-3">Online rezervacija parkinga</span>
                 <h1 class="display-5 fw-bold">Sistem za upravljanje parking mestima</h1>
                 <p class="lead text-light-emphasis mt-3">
-                    Pregled slobodnih i zauzetih parking mesta, rezervacija termina i administracija parkinga.
+                    Pregled slobodnih i zauzetih parking mesta i izbor mesta za rezervaciju.
                 </p>
                 <a href="#mapa" class="btn btn-primary btn-lg mt-3">Pogledaj parking mapu</a>
             </div>
             <div class="col-lg-5 mt-4 mt-lg-0">
                 <div class="info-card">
                     <h5>Trenutno stanje</h5>
-                    <div class="d-flex justify-content-between border-bottom py-2"><span>Ukupno mesta</span><strong>24</strong></div>
-                    <div class="d-flex justify-content-between border-bottom py-2"><span>Slobodna mesta</span><strong class="text-success">16</strong></div>
-                    <div class="d-flex justify-content-between py-2"><span>Zauzeta mesta</span><strong class="text-danger">8</strong></div>
+                    <div class="d-flex justify-content-between border-bottom py-2"><span>Ukupno mesta</span><strong><?php echo $totalSpots; ?></strong></div>
+                    <div class="d-flex justify-content-between border-bottom py-2"><span>Slobodna mesta</span><strong class="text-success"><?php echo $freeSpots; ?></strong></div>
+                    <div class="d-flex justify-content-between py-2"><span>Zauzeta mesta</span><strong class="text-danger"><?php echo $occupiedSpots; ?></strong></div>
                 </div>
             </div>
         </div>
@@ -31,12 +54,17 @@
                 </div>
                 <div class="card-body p-4">
                     <div class="parking-map">
-                        <?php for ($i = 1; $i <= 24; $i++): ?>
-                            <?php $occupied = in_array($i, [3, 6, 9, 12, 17, 19, 21, 24]); ?>
-                            <div class="parking-spot <?php echo $occupied ? 'occupied' : 'free'; ?>">
-                                P<?php echo str_pad($i, 2, '0', STR_PAD_LEFT); ?>
-                            </div>
-                        <?php endfor; ?>
+                        <?php while ($spot = mysqli_fetch_assoc($spots)): ?>
+                            <?php if ($spot['status'] == 'slobodno'): ?>
+                                <a class="parking-spot free text-decoration-none" href="reservation.php?spot_id=<?php echo $spot['id']; ?>">
+                                    <?php echo $spot['spot_number']; ?>
+                                </a>
+                            <?php else: ?>
+                                <div class="parking-spot occupied">
+                                    <?php echo $spot['spot_number']; ?>
+                                </div>
+                            <?php endif; ?>
+                        <?php endwhile; ?>
                     </div>
                 </div>
             </div>
@@ -53,8 +81,8 @@
 
             <div class="card app-card">
                 <div class="card-body p-4">
-                    <h4>Rezerviši</h4>
-                    <a href="reservation.php" class="btn btn-outline-primary w-100">Forma za rezervaciju</a>
+                    <h4>Uputstvo</h4>
+                    <p class="text-light-emphasis mb-0">Klikom na slobodno parking mesto otvara se forma za rezervaciju.</p>
                 </div>
             </div>
         </div>

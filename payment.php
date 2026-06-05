@@ -1,3 +1,19 @@
+<?php
+require_once 'classes/Session.php';
+
+$session = new Session();
+$session->start();
+
+if (!$session->isLoggedIn()) {
+    header('Location: login.php');
+    exit;
+}
+
+if ($session->isAdmin()) {
+    header('Location: admin/dashboard.php');
+    exit;
+}
+?>
 <?php include 'includes/header.php'; ?>
 <?php include 'includes/navbar.php'; ?>
 
@@ -6,7 +22,7 @@
         <div class="col-md-7 col-lg-5">
             <div class="card app-card p-4">
                 <h2 class="text-center mb-4">Plaćanje parkinga</h2>
-                <form>
+                <form method="POST" action="payment.php">
                     <div class="mb-3">
                         <label class="form-label">Broj kartice</label>
                         <input type="text" class="form-control" placeholder="0000 0000 0000 0000">

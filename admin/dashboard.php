@@ -12,7 +12,6 @@ if (!$session->isAdmin()) {
         <div>
             <h1>Administratorski panel</h1>
         </div>
-        <a href="../index.php" class="btn btn-outline-primary">Nazad na početnu</a>
     </div>
 
     <div class="row g-4 mb-4">
