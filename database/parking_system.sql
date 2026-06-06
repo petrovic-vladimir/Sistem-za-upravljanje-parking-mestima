@@ -15,7 +15,7 @@ CREATE TABLE parking_spots (
     id INT AUTO_INCREMENT PRIMARY KEY,
     spot_number VARCHAR(10) NOT NULL UNIQUE,
     status ENUM('slobodno', 'zauzeto') NOT NULL DEFAULT 'slobodno',
-    price_per_hour DECIMAL(10,2) NOT NULL DEFAULT 100.00
+    price_per_hour DECIMAL(10,2) NOT NULL DEFAULT 50.00
 );
 
 CREATE TABLE reservations (
@@ -46,27 +46,27 @@ INSERT INTO users (first_name, last_name, email, password, role) VALUES
 ('Test', 'Korisnik', 'korisnik@parking.rs', '$2y$12$ntc8PLFYGrfuat5LDNF5SOuQRfxTB0VchnFlyVf3tT35hQtFoEmdG', 'korisnik');
 
 INSERT INTO parking_spots (spot_number, status, price_per_hour) VALUES
-('P01', 'slobodno', 100.00),
-('P02', 'slobodno', 100.00),
-('P03', 'zauzeto', 100.00),
-('P04', 'slobodno', 100.00),
-('P05', 'slobodno', 100.00),
-('P06', 'zauzeto', 100.00),
-('P07', 'slobodno', 100.00),
-('P08', 'slobodno', 100.00),
-('P09', 'zauzeto', 100.00),
-('P10', 'slobodno', 100.00),
-('P11', 'slobodno', 100.00),
-('P12', 'zauzeto', 100.00),
-('P13', 'slobodno', 100.00),
-('P14', 'slobodno', 100.00),
-('P15', 'slobodno', 100.00),
-('P16', 'slobodno', 100.00),
-('P17', 'zauzeto', 100.00),
-('P18', 'slobodno', 100.00),
-('P19', 'zauzeto', 100.00),
-('P20', 'slobodno', 100.00),
-('P21', 'zauzeto', 100.00),
-('P22', 'slobodno', 100.00),
-('P23', 'slobodno', 100.00),
-('P24', 'zauzeto', 100.00);
+('P01', 'slobodno', 50.00),
+('P02', 'slobodno', 50.00),
+('P03', 'zauzeto', 50.00),
+('P04', 'slobodno', 50.00),
+('P05', 'slobodno', 50.00),
+('P06', 'zauzeto', 50.00),
+('P07', 'slobodno', 50.00),
+('P08', 'slobodno', 50.00),
+('P09', 'zauzeto', 50.00),
+('P10', 'slobodno', 50.00),
+('P11', 'slobodno', 50.00),
+('P12', 'zauzeto', 50.00),
+('P13', 'slobodno', 50.00),
+('P14', 'slobodno', 50.00),
+('P15', 'slobodno', 50.00),
+('P16', 'slobodno', 50.00),
+('P17', 'zauzeto', 50.00),
+('P18', 'slobodno', 50.00),
+('P19', 'zauzeto', 50.00),
+('P20', 'slobodno', 50.00),
+('P21', 'zauzeto', 50.00),
+('P22', 'slobodno', 50.00),
+('P23', 'slobodno', 50.00),
+('P24', 'zauzeto', 50.00);

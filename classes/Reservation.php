@@ -32,6 +32,15 @@ class Reservation extends Database implements CRUDInterface
         return mysqli_query($conn, $sql);
     }
 
+
+    public function readWithDetails($id)
+    {
+        $conn = $this->getConnection();
+        $id = (int) $id;
+        $sql = "SELECT reservations.*, parking_spots.spot_number, parking_spots.price_per_hour FROM reservations INNER JOIN parking_spots ON reservations.parking_spot_id = parking_spots.id WHERE reservations.id = $id";
+        return mysqli_query($conn, $sql);
+    }
+
     public function readAll()
     {
         $conn = $this->getConnection();

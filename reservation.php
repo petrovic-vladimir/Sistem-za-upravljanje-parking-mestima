@@ -115,11 +115,21 @@ $price = $spot ? $spot['price_per_hour'] : 100;
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label class="form-label">Vreme od</label>
-                            <input type="time" name="time_from" class="form-control" required>
+                            <select name="time_from" class="form-select" required>
+                                <option value="">Izaberite vreme</option>
+                                <?php for ($hour = 8; $hour <= 22; $hour++): ?>
+                                    <option value="<?php echo sprintf('%02d:00', $hour); ?>"><?php echo sprintf('%02d:00', $hour); ?></option>
+                                <?php endfor; ?>
+                            </select>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label class="form-label">Vreme do</label>
-                            <input type="time" name="time_to" class="form-control" required>
+                            <select name="time_to" class="form-select" required>
+                                <option value="">Izaberite vreme</option>
+                                <?php for ($hour = 9; $hour <= 23; $hour++): ?>
+                                    <option value="<?php echo sprintf('%02d:00', $hour); ?>"><?php echo sprintf('%02d:00', $hour); ?></option>
+                                <?php endfor; ?>
+                            </select>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Rezerviši</button>

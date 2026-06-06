@@ -157,3 +157,8 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
