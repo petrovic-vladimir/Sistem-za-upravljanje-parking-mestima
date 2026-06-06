@@ -5,7 +5,7 @@ class Database
     protected $host = 'localhost';
     protected $database = 'parking_system';
     protected $username = 'root';
-    protected $password = '';
+    protected $password = 'root';
     protected $conn;
 
     public function connect()

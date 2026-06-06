@@ -13,6 +13,11 @@ if ($session->isAdmin()) {
     header('Location: admin/dashboard.php');
     exit;
 }
+
+if (!isset($_SESSION['reservation_id'])) {
+    header('Location: index.php');
+    exit;
+}
 ?>
 <?php include 'includes/header.php'; ?>
 <?php include 'includes/navbar.php'; ?>

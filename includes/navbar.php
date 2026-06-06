@@ -4,8 +4,6 @@
         <div class="d-flex flex-wrap align-items-center gap-2">
             <?php if ($session->isLoggedIn() && !$session->isAdmin()): ?>
                 <a class="nav-link text-light" href="<?php echo $basePath; ?>index.php">Početna</a>
-                <a class="nav-link text-light" href="<?php echo $basePath; ?>reservation.php">Rezervacija</a>
-                <a class="nav-link text-light" href="<?php echo $basePath; ?>payment.php">Plaćanje</a>
             <?php endif; ?>
 
             <?php if ($session->isAdmin()): ?>

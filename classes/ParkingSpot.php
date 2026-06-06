@@ -50,6 +50,15 @@ class ParkingSpot extends Database implements CRUDInterface
         return $row['total'];
     }
 
+    public function changeStatus($id, $status)
+    {
+        $conn = $this->getConnection();
+        $id = (int) $id;
+        $status = mysqli_real_escape_string($conn, $status);
+        $sql = "UPDATE parking_spots SET status = '$status' WHERE id = $id";
+        return mysqli_query($conn, $sql);
+    }
+
     public function update($id, $data)
     {
         $conn = $this->getConnection();

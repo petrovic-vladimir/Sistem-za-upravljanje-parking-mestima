@@ -18,6 +18,12 @@ class Reservation extends Database implements CRUDInterface
         return mysqli_query($conn, $sql);
     }
 
+    public function getLastId()
+    {
+        $conn = $this->getConnection();
+        return mysqli_insert_id($conn);
+    }
+
     public function read($id)
     {
         $conn = $this->getConnection();
