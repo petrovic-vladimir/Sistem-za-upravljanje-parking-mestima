@@ -162,3 +162,39 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(1);
     cursor: pointer;
 }
+.main-nav .nav-link {
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+}
+
+.main-nav .nav-link:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 1px;
+    height: 18px;
+    background: rgba(255, 255, 255, 0.28);
+    transform: translateY(-50%);
+}
+
+.user-info {
+    color: var(--app-muted);
+    font-size: 0.95rem;
+    padding: 6px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+@media (max-width: 768px) {
+    .main-nav .nav-link {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .main-nav .nav-link:not(:last-child)::after {
+        display: none;
+    }
+}

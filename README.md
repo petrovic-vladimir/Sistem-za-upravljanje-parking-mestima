@@ -2,6 +2,19 @@
 
 Studentski projekat iz predmeta Projektovanje aplikacija baza podataka.
 
+## Baza podataka
+
+Host: localhost
+Naziv baze: parking_system
+Korisnik: root
+Lozinka: root
+
+## Kako startovati aplikaciju
+
+1. Bazu podataka pod nazivom parking_system koja se nalazi u folderu database importovati u mysql
+2. Omoguciti mysqli drajver u php-u
+3. Startovati localhost i pristupiti aplikaciji
+
 ## Tehnologije
 
 - HTML
