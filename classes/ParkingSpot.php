@@ -78,4 +78,14 @@ class ParkingSpot extends Database implements CRUDInterface
         $sql = "DELETE FROM parking_spots WHERE id = $id";
         return mysqli_query($conn, $sql);
     }
+
+    public function hasReservations($id)
+    {
+        $conn = $this->getConnection();
+        $id = (int) $id;
+        $sql = "SELECT COUNT(*) AS total FROM reservations WHERE parking_spot_id = $id";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        return $row['total'] > 0;
+    }
 }

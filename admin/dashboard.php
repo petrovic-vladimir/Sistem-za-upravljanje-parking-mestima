@@ -74,8 +74,8 @@ $latestReservations = $reservation->readLatest(5);
             <div class="info-card">
                 <h3>Admin opcije</h3>
                 <div class="d-flex gap-2 mt-3 flex-wrap">
-                    <a href="#" class="btn btn-primary">Korisnici</a>
-                    <a href="#" class="btn btn-outline-light">Parking mesta</a>
+                    <a href="users.php" class="btn btn-primary">Korisnici</a>
+                    <a href="parking_spots.php" class="btn btn-outline-light">Parking mesta</a>
                 </div>
             </div>
         </div>

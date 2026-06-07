@@ -8,6 +8,8 @@
 
             <?php if ($session->isAdmin()): ?>
                 <a class="nav-link text-light" href="<?php echo $basePath; ?>admin/dashboard.php">Admin panel</a>
+                <a class="nav-link text-light" href="<?php echo $basePath; ?>admin/users.php">Korisnici</a>
+                <a class="nav-link text-light" href="<?php echo $basePath; ?>admin/parking_spots.php">Parking mesta</a>
             <?php endif; ?>
 
             <?php if ($session->isLoggedIn()): ?>

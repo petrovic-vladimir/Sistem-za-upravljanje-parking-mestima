@@ -70,6 +70,13 @@ class User extends Database implements CRUDInterface
         return false;
     }
 
+    public function readAll()
+    {
+        $conn = $this->getConnection();
+        $sql = "SELECT * FROM users ORDER BY id ASC";
+        return mysqli_query($conn, $sql);
+    }
+
     public function countAll()
     {
         $conn = $this->getConnection();
@@ -78,4 +85,15 @@ class User extends Database implements CRUDInterface
         $row = mysqli_fetch_assoc($result);
         return $row['total'];
     }
+
+    public function hasReservations($id)
+    {
+        $conn = $this->getConnection();
+        $id = (int) $id;
+        $sql = "SELECT COUNT(*) AS total FROM reservations WHERE user_id = $id";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        return $row['total'] > 0;
+    }
 }
+
