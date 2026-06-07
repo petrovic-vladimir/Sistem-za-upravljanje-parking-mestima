@@ -9,6 +9,16 @@ Naziv baze: parking_system
 Korisnik: root
 Lozinka: root
 
+## Podaci za prijavu u app
+
+ - Korisnik
+    * Email adresa: korisnik@parking.rs
+    * Lozinka: korisnik123
+
+ - Admin
+    * Email adresa: admin@parking.rs
+    * Lozinka: admin123
+
 ## Kako startovati aplikaciju
 
 1. Bazu podataka pod nazivom parking_system koja se nalazi u folderu database importovati u mysql
