@@ -69,5 +69,13 @@ class User extends Database implements CRUDInterface
 
         return false;
     }
-}
 
+    public function countAll()
+    {
+        $conn = $this->getConnection();
+        $sql = "SELECT COUNT(*) AS total FROM users WHERE role = 'korisnik'";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        return $row['total'];
+    }
+}

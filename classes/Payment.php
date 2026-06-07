@@ -43,4 +43,13 @@ class Payment extends Database implements CRUDInterface
         $sql = "DELETE FROM payments WHERE id = $id";
         return mysqli_query($conn, $sql);
     }
+
+    public function sumTotal()
+    {
+        $conn = $this->getConnection();
+        $sql = "SELECT SUM(amount) AS total FROM payments WHERE status = 'placeno'";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        return $row['total'] ? $row['total'] : 0;
+    }
 }
