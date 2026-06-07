@@ -81,6 +81,8 @@ $latestReservations = $reservation->readLatest(5);
         </div>
     </div>
 
+    <?php include 'statistics.php'; ?>
+
     <div class="card app-card p-4">
         <h3>Poslednje rezervacije</h3>
         <div class="table-responsive mt-3">

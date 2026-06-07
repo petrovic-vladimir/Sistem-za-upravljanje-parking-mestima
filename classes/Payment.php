@@ -52,4 +52,32 @@ class Payment extends Database implements CRUDInterface
         $row = mysqli_fetch_assoc($result);
         return $row['total'] ? $row['total'] : 0;
     }
+
+    public function sumToday()
+    {
+        $conn = $this->getConnection();
+        $sql = "SELECT SUM(amount) AS total FROM payments WHERE status = 'placeno' AND DATE(payment_date) = CURDATE()";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        return $row['total'] ? $row['total'] : 0;
+    }
+
+    public function sumThisWeek()
+    {
+        $conn = $this->getConnection();
+        $sql = "SELECT SUM(amount) AS total FROM payments WHERE status = 'placeno' AND YEARWEEK(payment_date, 1) = YEARWEEK(CURDATE(), 1)";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        return $row['total'] ? $row['total'] : 0;
+    }
+
+    public function sumThisMonth()
+    {
+        $conn = $this->getConnection();
+        $sql = "SELECT SUM(amount) AS total FROM payments WHERE status = 'placeno' AND YEAR(payment_date) = YEAR(CURDATE()) AND MONTH(payment_date) = MONTH(CURDATE())";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        return $row['total'] ? $row['total'] : 0;
+    }
+
 }
